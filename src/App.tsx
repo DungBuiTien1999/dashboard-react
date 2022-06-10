@@ -23,9 +23,10 @@ import {
   Kanban,
   Orders,
 } from "./pages";
+import { StateProps, useStateContext } from "./context/ContextProvider";
 
 function App() {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext() as StateProps;
   return (
     <div>
       <BrowserRouter>
