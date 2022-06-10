@@ -5,9 +5,10 @@ import { links } from "../data/dummy";
 import { MdOutlineCancel } from "react-icons/md";
 import { pageMap } from "../common/constants";
 import { SiShopware } from "react-icons/si";
+import { StateProps, useStateContext } from "../context/ContextProvider";
 
 const Sidebar: React.FC = () => {
-  const activeMenu = true;
+  const { activeMenu, setActiveMenu } = useStateContext() as StateProps;
 
   const activeLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
@@ -27,7 +28,8 @@ const Sidebar: React.FC = () => {
             <TooltipComponent content="Menu" position="TopLeft">
               <button
                 type="button"
-                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
+                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block"
+                onClick={setActiveMenu}
               >
                 <MdOutlineCancel />
               </button>
